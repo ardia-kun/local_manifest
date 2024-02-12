@@ -14,7 +14,7 @@ crave run --clean --no-patch -- "rm -rf .repo/local_manifests && \
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
 
 # sync tree
-git clone -b 13-staging https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
+git clone -b wip/round-corner-experimentations https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
 
 # clone hardware/xiaomi
 git clone https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi && \
