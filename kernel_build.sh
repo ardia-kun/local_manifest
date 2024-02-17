@@ -24,7 +24,7 @@ git clone --depth=1 https://github.com/alternoegraha/AnyKernel3-680 -b master An
 cp -R out/arch/arm64/boot/Image.gz AnyKernel3/Image.gz
 # Zip it and upload it
 cd AnyKernel3
-zip -r Mi680-WeatheringWithYou-test . -x ".git*" -x "README.md" -x "*.zip"
+zip -r Mi680-WeatheringWithYou-"$TIMESTAMP" . -x ".git*" -x "README.md" -x "*.zip"
 curl -T Mi680-WeatheringWithYou-"$TIMESTAMP".zip https://pixeldrain.com/api/file/
 # finish
 cd ..
