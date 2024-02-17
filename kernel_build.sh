@@ -1,3 +1,5 @@
+TIMESTAMP=$(date +%s)
+
 # Install dependencies
 # -- to be added --
 
@@ -7,7 +9,11 @@ git clone --depth=1 https://github.com/arter97/arm32-gcc.git gcc32
 git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git gcc64
 
 # Apply KernelSU
-# -- to be added --
+curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+cd KernelSU && git rev-list --count HEAD
+cd ..
+patch -p1 < ksu_patches/KernelSU.patch
+patch -p1 < ksu_patches/KernelSU_umount.patch
 
 # Build
 # Prepare
@@ -21,7 +27,7 @@ cp -R out/arch/arm64/boot/Image.gz AnyKernel3/Image.gz
 # Zip it and upload it
 cd AnyKernel3
 zip -r Mi680-WeatheringWithYou-test . -x ".git*" -x "README.md" -x "*.zip"
-curl -T Mi680-WeatheringWithYou-test.zip https://pixeldrain.com/api/file/
+curl -T Mi680-WeatheringWithYou-"$TIMESTAMP".zip https://pixeldrain.com/api/file/
 # finish
 cd ..
 rm -rf out/
