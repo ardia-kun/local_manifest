@@ -5,8 +5,6 @@ sudo apt update && sudo apt install -y bc cpio nano bison ca-certificates curl f
 
 # clone clang and gcc
 git clone https://github.com/Nicklas373/aosp-clang -b r412851 clang-llvm
-git clone --depth=1 https://github.com/arter97/arm32-gcc.git gcc32
-git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git gcc64
 
 # Apply KernelSU
 curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
@@ -17,9 +15,9 @@ patch -p1 < ksu_patches/KernelSU_umount.patch
 
 # Build
 # Prepare
-make -j$(nproc --all) O=out ARCH=arm64 CC=$(pwd)/clang-llvm/bin/clang CROSS_COMPILE=$(pwd)/gcc64/bin/aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- LLVM_IAS=1 vendor/fog-perf_defconfig
+make -j$(nproc --all) O=out ARCH=arm64 CC=$(pwd)/clang-llvm/bin/clang CROSS_COMPILE=aarch64-linux-gnu- CLANG_TRIPLE=aarch64-linux-gnu- LLVM_IAS=1 vendor/fog-perf_defconfig
 # Execute
-make -j$(nproc --all) O=out ARCH=arm64 CC=$(pwd)/clang-llvm/bin/clang CROSS_COMPILE=$(pwd)/gcc64/bin/aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- LLVM_IAS=1
+make -j$(nproc --all) O=out ARCH=arm64 CC=$(pwd)/clang-llvm/bin/clang CROSS_COMPILE=aarch64-linux-gnu- CLANG_TRIPLE=aarch64-linux-gnu- LLVM_IAS=1
 
 # Package
 git clone --depth=1 https://github.com/alternoegraha/AnyKernel3-680 -b master AnyKernel3
