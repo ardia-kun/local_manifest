@@ -1,7 +1,7 @@
 TIMESTAMP=$(date +%s)
 
 # Install dependencies
-# -- to be added --
+sudo apt update && sudo apt install -y bc cpio nano bison ca-certificates curl flex gcc git libc6-dev libssl-dev openssl python-is-python3 ssh wget zip zstd sudo make clang gcc-arm-linux-gnueabi software-properties-common build-essential libarchive-tools gcc-aarch64-linux-gnu
 
 # clone clang and gcc
 git clone https://github.com/Nicklas373/aosp-clang -b r412851 clang-llvm
