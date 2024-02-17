@@ -6,6 +6,10 @@ sudo apt update && sudo apt install -y bc cpio nano bison ca-certificates curl f
 # clone clang and gcc
 git clone https://github.com/Nicklas373/aosp-clang -b r412851 clang-llvm
 
+# Set kbuild
+KBUILD_BUILD_USER=alternoegraha
+KBUILD_BUILD_HOST=localhost
+
 # Apply KernelSU
 curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
 cd KernelSU && git rev-list --count HEAD
@@ -24,9 +28,9 @@ git clone --depth=1 https://github.com/alternoegraha/AnyKernel3-680 -b master An
 cp -R out/arch/arm64/boot/Image.gz AnyKernel3/Image.gz
 # Zip it and upload it
 cd AnyKernel3
-zip -r Mi680-WeatheringWithYou-"$TIMESTAMP" . -x ".git*" -x "README.md" -x "*.zip"
-curl -T Mi680-WeatheringWithYou-"$TIMESTAMP".zip https://pixeldrain.com/api/file/
+zip -r Mi680-WeatheringWithYou-"$TIMESTAMP"-testing . -x ".git*" -x "README.md" -x "*.zip"
+curl -T Mi680-WeatheringWithYou-"$TIMESTAMP"-testing.zip https://pixeldrain.com/api/file/
 # finish
 cd ..
-rm -rf out/
+rm -rf out/ AnyKernel3/ drivers/kernelsu KernelSU/
 echo "Build finished"
