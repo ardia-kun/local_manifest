@@ -4,18 +4,11 @@ TIMESTAMP=$(date +%s)
 sudo apt update && sudo apt install -y bc cpio nano bison ca-certificates curl flex gcc git libc6-dev libssl-dev openssl python-is-python3 ssh wget zip zstd sudo make clang gcc-arm-linux-gnueabi software-properties-common build-essential libarchive-tools gcc-aarch64-linux-gnu
 
 # clone clang and gcc
-git clone https://github.com/Nicklas373/aosp-clang -b r412851 clang-llvm
+git clone https://gitlab.com/anandhan07/aosp-clang.git clang-llvm
 
 # Set kbuild
 KBUILD_BUILD_USER=alternoegraha
 KBUILD_BUILD_HOST=localhost
-
-# Apply KernelSU
-curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-cd KernelSU && git rev-list --count HEAD
-cd ..
-patch -p1 < ksu_patches/KernelSU.patch
-patch -p1 < ksu_patches/KernelSU_umount.patch
 
 # Build
 # Prepare
@@ -32,5 +25,5 @@ zip -r Mi680-WeatheringWithYou-"$TIMESTAMP"-testing . -x ".git*" -x "README.md" 
 curl -T Mi680-WeatheringWithYou-"$TIMESTAMP"-testing.zip https://pixeldrain.com/api/file/
 # finish
 cd ..
-rm -rf out/ AnyKernel3/ drivers/kernelsu KernelSU/
+rm -rf clang-llvm/ out/ AnyKernel3/
 echo "Build finished"
