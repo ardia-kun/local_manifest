@@ -11,5 +11,5 @@
 
         <project path="device/xiaomi/fog" name="device_xiaomi_fog" remote="Alter" revision="fourteen-qpr2" />
         <project path="vendor/xiaomi/fog" name="vendor_xiaomi_fog" remote="Nugroho" revision="fourteen" />
-        <project path="kernel/xiaomi/fog" name="sdm660-kimhime-kernul" remote="ardia" revision="fog-r-oss-staging" />
+        <project path="kernel/xiaomi/fog" name="sdm660-kimhime-kernul" remote="Ardia" revision="fog-r-oss-staging" />
 </manifest>
