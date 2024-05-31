@@ -1,32 +1,15 @@
-#!/bin/bash
+<?xml version="1.0" encoding="UTF-8"?>
 
-set -e
-#Credit to Meghthedev for the initial script 
+<manifest>
+        <remote name="Alter"
+        fetch="https://github.com/alternoegraha/" />
+        <remote name="Nugroho"
+        fetch="https://github.com/alternoegraha" />
+        <remote name="Ardia-kun"
+        fetch="https://github.com/ardia-kun" />
 
-# init
-repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
 
-# Run inside foss.crave.io devspace
-# Remove existing local_manifests
-crave run --clean --no-patch -- "rm -rf .repo/local_manifests && \
-
-# sync repo
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags && \ 
-
-# sync tree
-git clone -b wip/round-corner-experimentations https://github.com/alternoegraha/device_xiaomi_fog device/xiaomi/fog && \
-
-# clone hardware/xiaomi
-git clone https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi && \
-
-# Set up build environment
-source build/envsetup.sh && \
-
-# Lunch configuration
-lunch lineage_fog-userdebug && \
-
-# Build the ROM
-mka bacon"
-
-# Pull generated zip files
-crave pull out/target/product/*/*.zip
+        <project path="device/xiaomi/fog" name="device_xiaomi_fog" remote="Alter" revision="lineage-21-qpr2" />
+        <project path="vendor/xiaomi/fog" name="vendor_xiaomi_fog" remote="Nugroho" revision="fourteen" />
+        <project path="kernel/xiaomi/fog" name="sdm660-kimhime-kernul" remote="ardia-kun" revision="fog-r-oss-staging" />
+</manifest>
