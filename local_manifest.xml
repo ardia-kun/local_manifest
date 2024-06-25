@@ -2,7 +2,7 @@
 
 <manifest>
         <remote name="Ardia"
-        fetch="https://github.com/alternoegraha/" />
+        fetch="https://github.com/ardia-kun/" />
 
         <project path="device/xiaomi/fog" name="device_xiaomi_fog" remote="Ardia" revision="lineage-21-qpr3" />
 </manifest>
