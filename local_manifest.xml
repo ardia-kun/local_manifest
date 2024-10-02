@@ -4,5 +4,5 @@
         <remote name="Ardia"
         fetch="https://github.com/ardia-kun/" />
 
-        <project path="device/xiaomi/fog" name="device_xiaomi_fog" remote="Ardia" revision="sigma-14" />
+        <project path="device/xiaomi/fog" name="device_xiaomi_fog" remote="Ardia" revision="fourteen/lineage21" />
 </manifest>
