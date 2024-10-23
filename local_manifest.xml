@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <manifest>
-        <remote name="Ardia"
-        fetch="https://github.com/ardia-kun/" />
+        <remote name="Romeo13card"
+        fetch="https://github.com/Romeo13card/" />
 
-        <project path="device/xiaomi/fog" name="device_xiaomi_fog" remote="Ardia" revision="lineage-21-qpr3" />
+        <project path="device/xiaomi/fog" name="device_xiaomi_fog" remote="Romeo13card" revision="lineage-21-qpr3" />
 </manifest>
