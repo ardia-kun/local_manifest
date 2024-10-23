@@ -4,5 +4,5 @@
         <remote name="Romeo13card"
         fetch="https://github.com/Romeo13card/" />
 
-        <project path="device/xiaomi/fog" name="device_xiaomi_fog" remote="Romeo13card" revision="lineage-21-qpr3" />
+        <project path="device/xiaomi/fog" name="device_xiaomi_fog" remote="Romeo13card" revision="fourteen/lineage21" />
 </manifest>
