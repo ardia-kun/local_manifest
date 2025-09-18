@@ -4,5 +4,5 @@
         <remote name="Ardia"
         fetch="https://github.com/ardia-kun/" />
 
-        <project path="device/xiaomi/surya" name="device_xiaomi_surya" remote="Ardia" revision="eleven" />
+        <project path="device/xiaomi/surya" name="device_xiaomi_surya" remote="Ardia" revision="lineage-18.1" />
 </manifest>
